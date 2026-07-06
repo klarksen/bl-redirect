@@ -9,16 +9,27 @@
   <meta http-equiv="Expires" content="0">
 
   <title>Redirecting...</title>
+
+  <script>
+    // Change only this line when you want a new destination
+    const REDIRECT_URL = "https://google.com";
+  </script>
 </head>
+
 <body>
   <script>
-    const target = "http://google.com";
-    window.location.replace(target + "?t=" + Date.now());
+    window.location.replace(
+      REDIRECT_URL + "?t=" + Date.now()
+    );
   </script>
 
   <noscript>
     Redirecting...
-    <a href="http://google.com">Click here if not redirected</a>
+    <a id="fallbackLink">Click here if not redirected</a>
+
+    <script>
+      document.getElementById("fallbackLink").href = REDIRECT_URL;
+    </script>
   </noscript>
 </body>
 </html>
